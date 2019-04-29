@@ -349,6 +349,7 @@ def parseBody =  { body, anchors, pageAnchors ->
 
 // the create-or-update functionality for confluence pages
 def pushToConfluence = { pageTitle, pageBody, parentId, anchors, pageAnchors ->
+    println config.confluence.api
     def api = new RESTClient(config.confluence.api)
     def headers = [
             'Authorization': 'Basic ' + config.confluence.credentials,
