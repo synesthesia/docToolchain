@@ -95,9 +95,9 @@ confluence.with {
     // username:password of an account which has the right permissions to create and edit
     // confluence pages in the given space.
     // if you want to store it securely, fetch it from some external storage.
-    // you might even want to prompt the user for the password like in this example
+    // in this example we retrieve from environment
 
-    credentials = "user:pass_or_token".bytes.encodeBase64().toString()
+    credentials = "${System.getenv("CONFLUENCE_USER")}:${System.getenv("CONFLUENCE_KEY")}".bytes.encodeBase64().toString()
 
     // HTML Content that will be included with every page published
     // directly after the TOC. If left empty no additional content will be
